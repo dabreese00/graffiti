@@ -1,0 +1,28 @@
+{
+  "manifest_version": 2,
+  "name": "Graffiti",
+  "version": "1.0",
+
+  "description": "Adds graffiti to any web page!",
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "graffiti@dabreese00.net"
+    }
+  },
+
+  "icons": {
+    "48": "icons/stars-48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],
+      "js": ["graffiti.js"]
+    }
+  ],
+
+  "web_accessible_resources": [
+    "taggers/my_taggers.json"
+  ]
+}
