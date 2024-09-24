@@ -1,5 +1,25 @@
 [
   {
+    "matcher": "https://github\\.com/.*",
+    "tags": [
+      {
+        "selector": ".v-align-middle",
+        "property": "transform",
+        "value": "rotate(0.94turn)"
+      },
+      {
+        "selector": ".v-align-middle",
+        "property": "filter",
+        "value": "blur(2px)"
+      },
+      {
+        "selector": ".AppHeader-context-item-label",
+        "property": "filter",
+        "value": "blur(1px)"
+      }
+    ]
+  },
+  {
     "matcher": "https://trello\\.com/.*",
     "tags": [
       {
@@ -16,6 +36,11 @@
         "selector": "ytd-topbar-logo-renderer.style-scope:nth-child(4) > a:nth-child(1) > div:nth-child(1) > ytd-logo:nth-child(1) > yt-icon:nth-child(1) > span:nth-child(1)",
         "property": "transform",
         "value": "rotate(0.4turn)"
+      },
+      {
+        "selector": "ytd-topbar-logo-renderer.style-scope:nth-child(4) > a:nth-child(1) > div:nth-child(1) > ytd-logo:nth-child(1) > yt-icon:nth-child(1) > span:nth-child(1)",
+        "property": "filter",
+        "value": "hue-rotate(90deg) opacity(50%)"
       },
       {
         "selector": "a.yt-spec-button-shape-next",
