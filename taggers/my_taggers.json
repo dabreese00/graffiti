@@ -8,7 +8,7 @@
         "value": "rotate(0.94turn)"
       },
       {
-        "selector": ".v-align-middle",
+        "selector": ".octicon-mark-github",
         "property": "filter",
         "value": "blur(2px)"
       },
