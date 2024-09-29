@@ -15,12 +15,16 @@
     "48": "icons/stars-48.png"
   },
 
-  "content_scripts": [
-    {
-      "matches": ["*://*/*"],
-      "js": ["graffiti.js"]
-    }
+  "permissions": [
+    "*://*/*",
+    "webNavigation",
+    "scripting"
   ],
+
+  "background": {
+    "scripts": ["graffiti.js"],
+    "persistent": false
+  },
 
   "web_accessible_resources": [
     "taggers/my_taggers.json"

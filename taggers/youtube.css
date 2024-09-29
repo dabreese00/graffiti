@@ -1,0 +1,21 @@
+ytd-topbar-logo-renderer.style-scope:nth-child(4) > a:nth-child(1) > div:nth-child(1) > ytd-logo:nth-child(1) > yt-icon:nth-child(1) > span:nth-child(1) {
+    transform:rotate(0.4turn)
+}
+ytd-topbar-logo-renderer.style-scope:nth-child(4) > a:nth-child(1) > div:nth-child(1) > ytd-logo:nth-child(1) > yt-icon:nth-child(1) > span:nth-child(1) {
+    filter:hue-rotate(90deg) opacity(50%)
+}
+a.yt-spec-button-shape-next {
+    transform:rotate(0.5turn)
+}
+ytd-mini-guide-entry-renderer.style-scope:nth-child(1) > a:nth-child(1) {
+    transform:rotate(0.25turn)
+}
+ytd-mini-guide-entry-renderer.style-scope:nth-child(2) > a:nth-child(1) {
+    transform:rotate(0.8turn)
+}
+ytd-mini-guide-entry-renderer.style-scope:nth-child(4) > a:nth-child(1) {
+    transform:rotate(0.6turn)
+}
+ytd-searchbox.style-scope {
+    transform:7px solid yellow
+}

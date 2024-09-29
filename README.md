@@ -8,19 +8,31 @@ Graffiti is a firefox add-on to let us mess around with how our favorite (or lea
 
 2. Open Firefox and load the add-on temporarily from the `about:debugging` page, as described [here](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Your_first_WebExtension#installing).
 
-3. Visit a website that has graffiti written for it (check the `taggers/my_taggers.json` file for the current list of graffiti).
+3. Visit a website that has graffiti written for it (check the `taggers` directory).
 
 4. Look and see the graffiti.
 
-5. Go edit the `taggers/my_taggers.json` file and add your own graffiti!
+5. Now try tagging a website yourself!
 
-## Reading and writing graffiti
+## Tagging a website
 
-Graffiti consists of a CSS selector, and a CSS property/value which will be set on all elements that match that selector.
+So you want to draw all over a website?
 
-A list of CSS selector/property/value triplets (also called "tags") gets applied to specific web pages based on the associated *matcher*, a regular expression that matches the page's URL.
+Make a [CSS file](https://developer.mozilla.org/en-US/docs/Web/CSS) to override that site's styles, in whatever way you like.
 
-The astute among us might observe that this is pretty much just a CSS stylesheet, but written funny, and less flexible.  We reserve the right to just start using stylesheets instead one day, if we ever learn how to be that smart.
+Put the CSS file in the `taggers` directory.
+
+For examples, just go look and see what's in the `taggers` directory right now.
+
+Now you need to apply your CSS file to a website.
+
+Create a [Regular expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_expressions) to tell Graffiti what website(s) you want your CSS file to apply to.
+
+Add the regular expression, and the path to the CSS file, to the `tagMaps` constant at the top of `graffiti.js`.
+
+For examples, just go look and see what's in `graffiti.js` right now.
+
+Once you've done that, reload the extension, browse to your target web page, and you should see your graffiti!
 
 ## Contributing
 

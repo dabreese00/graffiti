@@ -1,0 +1,9 @@
+.v-align-middle {
+    transform:rotate(0.94turn)
+}
+.octicon-mark-github {
+    filter:blur(2px)
+}
+.AppHeader-context-item-label {
+    filter:blur(1px)
+}
