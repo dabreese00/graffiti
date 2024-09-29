@@ -1,43 +1,44 @@
-const url = browser.runtime.getURL("taggers/my_taggers.json");
+const tagMaps = [
+  {
+    urlMatch: /https:\/\/github\.com/,
+    filepath: 'taggers/github.css'
+  },
+  {
+    urlMatch: /https:\/\/www\.youtube\.com/,
+    filepath: 'taggers/youtube.css'
+  },
+  {
+    urlMatch: /https:\/\/trello.com/,
+    filepath: 'taggers/trello.css'
+  }
+];
 
-const myRequest = new Request(url);
-
-function tagTheDOM() {
-  fetch(myRequest)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`HTTP error, status = ${response.status}`);
-      }
-      return response.text();
-    })
-  
-    .then((myText) => {
-      const my_taggers = JSON.parse(myText);
-  
-      for (const tagger of my_taggers) {
-        matcher = RegExp(tagger.matcher);
-  
-        if (matcher.test(window.location)) {
-          for (const tag of tagger.tags) {
-            elements = document.querySelectorAll(tag.selector)
-
-            for (const e of elements) {
-              console.debug(`Applying styles to ${e.tagName}`);
-              e.style.setProperty(tag.property, tag.value);
+browser.webNavigation.onCompleted.addListener(
+  function injectTags(details) {
+    for (const tagMap of tagMaps) {
+      if (tagMap.urlMatch.test(details.url)) {
+        const cssURL = browser.runtime.getURL(tagMap.filepath);
+        const cssRequest = new Request(cssURL);
+        fetch(cssRequest)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error, status = ${response.status}`);
             }
-          }
-        }
+            return response.text();
+          })
+          .then((myCSS) => {
+            browser.scripting.insertCSS({
+              target: {
+                tabId: details.tabId
+              },
+              css: myCSS,
+              origin: "USER"  // prevent web pages from overriding it
+            });
+          })
+          .catch((error) => {
+            console.error(`Error: ${error.name}: ${error.message}`);
+          });
       }
-    })
-  
-    .catch((error) => {
-      console.error(`Error: ${error.name}: ${error.message}`);
-    });
-};
-
-if (document.readyState === "loading") {
-  // Loading hasn't finished yet
-  document.addEventListener("DOMContentLoaded", tagTheDOM);
-} else {
-  tagTheDOM();
-}
+    }
+  }
+);
