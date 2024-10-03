@@ -42,3 +42,26 @@ browser.webNavigation.onCompleted.addListener(
     }
   }
 );
+
+browser.menus.create({
+  id: "poof",
+  title: "Poof",
+  documentUrlPatterns: ["*://*/*"],
+  contexts: [
+    "audio",
+    "editable",
+    "frame",
+    "image",
+    "link",
+    "page",
+    "password",
+    "video",
+  ],
+});
+
+browser.menus.onClicked.addListener((info, tab) => {
+  browser.tabs.executeScript(tab.id, {
+    frameId: info.frameId,
+    code: `browser.menus.getTargetElement(${info.targetElementId}).remove();`,
+  });
+});

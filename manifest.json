@@ -18,7 +18,8 @@
   "permissions": [
     "*://*/*",
     "webNavigation",
-    "scripting"
+    "scripting",
+    "menus"
   ],
 
   "background": {
